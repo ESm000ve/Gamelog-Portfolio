@@ -1,75 +1,132 @@
-# Gamelog for macOS
+
+# Gamelog
 
 [![Project checks](https://github.com/ESm000ve/Gamelog-Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/ESm000ve/Gamelog-Portfolio/actions/workflows/ci.yml)
 
-**A personal game library, play journal, and guide to what to play next.**
+### A considered home for your games, your play history, and what comes next.
 
-Gamelog connects three jobs in one local-first Apple silicon app. Browse and organize a collection, record what happened during play, and decide what fits the next session. Local recommendations explain their reasons. Optional AI can refine picks or draft a log for review.
+Gamelog is a macOS desktop app for organizing a game library, keeping a play journal, and choosing what to play. It brings collection management and personal reflection into one local-first experience for Apple silicon, with optional AI assistance under the player's control.
 
-**Eric Auzenne · Product design · Interaction design · Design systems · Working app**
+**Product design · Interaction design · Design systems · Working prototype**
 
-[Read the case study](docs/case-study/README.md) · [Explore the macOS design system](docs/case-study/design-system/README.md) · [Try the demo](#try-the-demo) · [Windows edition](https://github.com/ESm000ve/Gamelog-Windows-Portfolio)
+![Gamelog library in Light mode, showing cover art, status tabs, ratings and collection tools](docs/screenshots/library-light.png)
 
-![Gamelog Library with play-status filters, cover art, ratings, and a grid or table toggle](docs/case-study/screenshots/01-library.png)
+_Actual production app. All screenshots use fictional games, original sample artwork and invented play records. No personal library is included._
 
-_Production browser capture using fictional games, sample artwork, and invented play records._
+[Read the design case study](docs/CASE-STUDY.md) · [Explore the design system](docs/design-system/README.md) · [Run it locally](#run-it-locally) · [Windows edition](https://github.com/ESm000ve/Gamelog-Windows-Portfolio)
 
-## Explore the product
+## Design system in Figma
 
-| Experience   | Design decision                                                                                                                      |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Library      | Cover view supports recognition. A sortable table, filters, and saved views support comparison.                                      |
-| Game logs    | Browsing leaves the collection untouched. A player reviews a draft before saving a new game and its log.                             |
-| What to Play | The play pool and time limit narrow the options. Each local pick explains why it surfaced.                                           |
-| Activity     | The calendar and summary reflect recorded sessions. Collection activity and play history have separate meanings.                     |
-| Mac desktop  | Start and stop a session timer from the Play menu, resume from the Dock, share a list through macOS, and recover from local backups. |
+[**Open the editable macOS design system →**](https://www.figma.com/design/TiuL5F9dS9HemUafC0ZnIM?node-id=2-2)
 
-| What to Play                                                                                              | Activity                                                                                        |
-| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| ![Local recommendations with ranked reasons and actions](docs/case-study/screenshots/02-what-to-play.png) | ![Play journal with session totals and a calendar](docs/case-study/screenshots/03-activity.png) |
+The companion Figma library documents foundations, component states, interaction patterns and design-to-code mappings. The repository includes 10 presentation boards, Light/Dark and accent token snapshots and an offline viewer.
 
-## Design system
+[![Gamelog macOS design-system cover](docs/design-system/preview/boards/00-cover.png)](docs/design-system/README.md)
 
-The macOS Figma library covers Light and Dark foundations, component states, keyboard behavior, and product patterns. The public reference includes all ten boards and links the component families to their React and CSS sources.
+[Browse the design-system documentation](docs/design-system/README.md) · [Figma portfolio board](https://www.figma.com/design/TiuL5F9dS9HemUafC0ZnIM?node-id=2-687) · [File and node manifest](docs/design-system/figma-manifest.json)
 
-[![Gamelog macOS design-system overview](docs/case-study/design-system/start-here.png)](docs/case-study/design-system/README.md)
+## The product idea
 
-[Open the Figma library](https://www.figma.com/design/TiuL5F9dS9HemUafC0ZnIM?node-id=2-2) · [Browse the exported boards and source map](docs/case-study/design-system/README.md)
+A growing game library can become a list of decisions postponed. Gamelog connects three jobs: **organize what you own, remember what you played, and decide what deserves your next session.**
 
-## Try the demo
+The interface keeps catalog information separate from personal records. Browsing a game does not add it to the library. Logging status does not invent play history. Recommendations explain their signals, and AI suggestions remain drafts for review.
 
-Use Node.js 24 LTS and npm.
+| Experience               | Design intent                                                                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Library                  | Cover browsing and a sortable table support recognition and comparison. Status tabs, combined filters and saved views keep a collection manageable. |
+| Play journal             | Notes, ratings, sessions and completion states preserve the player's own account of a game.                                                         |
+| What to play             | Local recommendations use eligible games, available time and taste signals. Optional AI refinement is an explicit action.                           |
+| Lists and sharing        | Curated collections offer an editorial layer beyond automatic sorting, and the macOS share picker handles sending a list.                           |
+| Activity and statistics  | Recorded sessions and scoped summaries turn collection data into a personal reflection tool.                                                        |
+| Mac desktop              | Start and stop a session timer from the Play menu, resume from the Dock, and recover from daily local backups.                                      |
+| Recovery and portability | Export/import, undo and recovery protect personal records.                                                                                          |
+
+## A closer look
+
+| Choose a next session                                                                              | Reflect on your play                                                                    |
+| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| ![What to play with local explanations and independent actions](docs/screenshots/what-to-play.png) | ![Activity journal with session totals and a play calendar](docs/screenshots/activity.png) |
+
+<details>
+<summary>Statistics, Dark mode and curated collections</summary>
+
+![Statistics showing recorded play summaries and library breakdowns](docs/screenshots/statistics.png)
+
+![Library in Dark mode](docs/screenshots/library-dark.png)
+
+![Curated game collections](docs/screenshots/collections.png)
+
+</details>
+
+## Run it locally
+
+Use **Node.js 24 LTS** and npm. Apple silicon macOS is the supported desktop target; the browser version supports development and review.
 
 ```sh
 npm ci
 npm run dev:web
 ```
 
-Open the local URL printed in the terminal. In a fresh browser profile, open **Settings → Backup and restore → Import backup**, choose [`examples/demo-library.json`](examples/demo-library.json), and select **Merge (Add & Update)**. The backup adds six fictional games, play logs, and a curated list. Library views, local recommendations, and backups work without service credentials. For the sample sessions in Activity, choose a date range that includes October 2026.
+Open the local URL printed by the server. The app starts with an empty library. To explore it without credentials, import [`examples/demo-library.json`](examples/demo-library.json) from **Settings → Backup and restore → Import backup → Merge (Add & Update)**. This adds six fictional games, play logs and a collection. Use a separate browser profile for a clean demo, and choose a date range that includes October 2026 to see the sample sessions in Activity.
 
-### Connect your own services
+### Bring your own API credentials
 
-Copy `.env.example` to `.env`, add only the credentials you need, and restart the app.
+The app includes no shared service keys. Copy `.env.example` to `.env`, add your own values, then restart.
 
-| Variable                                  | Feature                                                                                                                                                                                   |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `IGDB_CLIENT_ID` and `IGDB_CLIENT_SECRET` | Catalog search and online details through [IGDB](https://api-docs.igdb.com/#authentication)                                                                                               |
-| `GEMINI_API_KEY`                          | Optional AI assistance through [Google AI Studio](https://aistudio.google.com/apikey). Text generation defaults to `gemini-3.5-flash`, with `GEMINI_TEXT_MODEL` available as an override. |
-| `STEAM_WEB_API_KEY`                       | [Steam library import](https://steamcommunity.com/dev/apikey) for profiles with public game details                                                                                       |
+```sh
+cp .env.example .env
+```
 
-Credentials stay on the local server. Keep `.env` private and reserve the `VITE_PUBLIC_` prefix for values safe to expose to the renderer.
+| Variable                                | Enables                                                                                                                                             | Needed for demo? |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `IGDB_CLIENT_ID` + `IGDB_CLIENT_SECRET` | Catalog search and online details through a [Twitch developer application](https://api-docs.igdb.com/#authentication)                               | No               |
+| `GEMINI_API_KEY`                        | Optional AI parsing, recommendations and recaps through [Google AI Studio](https://aistudio.google.com/apikey). `GEMINI_TEXT_MODEL` overrides the default model | No               |
+| `STEAM_WEB_API_KEY`                     | [Steam library import](https://steamcommunity.com/dev/apikey); the profile's game details must be public                                           | No               |
 
-## Build and verify
+Credentials stay on the local server and are excluded from the renderer and desktop package. Never use a `VITE_PUBLIC_` variable for a secret. The sample library, editing, lists, local recommendations, statistics and backups work without service credentials. Online catalog, AI and Steam requests require the relevant credentials and internet. Optional deal lookups contact CheapShark separately.
 
-Use `npm run dev` for Electron development or `npm run build:desktop` to build the Apple silicon disk image under `release/macos/`.
+See [desktop setup](docs/DESKTOP-SETUP.md) for packaged-app configuration.
 
-[macOS desktop setup](docs/DESKTOP-SETUP.md) · [Architecture and data boundaries](docs/ARCHITECTURE.md) · [GitHub Actions](https://github.com/ESm000ve/Gamelog-Portfolio/actions)
+## Project structure
 
-| Command                      | Purpose                                                                         |
-| ---------------------------- | ------------------------------------------------------------------------------- |
-| `npm run check`              | Type-check, lint, and run regression tests                                      |
-| `npm run build`              | Build production assets and smoke-check the compiled desktop server and preload |
-| `npm run test:ui:production` | Run the browser suite against production assets                                 |
-| `npm run test:desktop`       | Check a built Electron app using a temporary profile                            |
+```text
+src/          React screens, shared UI, design tokens and local data services
+server/       Local API handlers for IGDB, Gemini and Steam
+electron/     macOS desktop shell, menu, Dock and private runtime configuration
+tests/        Unit, API and browser regression coverage
+scripts/      Build checks, desktop verification and publication tools
+docs/         Case study, design system, screenshots and setup guides
+examples/     Fictional, offline-ready demo library
+build/        Application icon source
+```
 
-[Reproduce the portfolio screenshots](docs/case-study/README.md#reproduce-the-screenshots)
+React 19, TypeScript, Fluent UI, Dexie/IndexedDB, Vite, Express and Electron. Screens load on demand; browser and desktop builds share the local API handlers. See [architecture](docs/ARCHITECTURE.md).
+
+## Development and verification
+
+| Command                      | Purpose                                                      |
+| ---------------------------- | ------------------------------------------------------------ |
+| `npm run dev`                | Start the Electron development app                           |
+| `npm run dev:web`            | Start the browser app and local API routes                   |
+| `npm run check`              | Type checking, lint and unit/API tests                       |
+| `npm run build`              | Build browser/desktop code; check assets and compiled server |
+| `npm run test:ui:production` | Build and test the production browser app                    |
+| `npm run test:desktop`       | Check a built desktop app with a temporary profile           |
+| `npm run build:desktop`      | Build an Apple silicon disk image under `release/macos/`     |
+| `npm run screenshots`        | Recreate portfolio screenshots using fictional data          |
+| `npm run check:publication`  | Scan public source for recognized secrets/private files      |
+| `npm run export:github`      | Create source-only output without local files or Git history |
+
+Install Playwright's browser with `npx playwright install chromium`. GitHub Actions checks the production browser app on macOS. [Verification details](docs/VERIFICATION.md).
+
+## Data and scope
+
+Records stay in IndexedDB in the current browser/desktop profile. There is no account, cloud sync or hosted multi-user service. Static hosting alone cannot provide `/api` features. Export a backup before changing the app's origin, profile or desktop port.
+
+Optional AI actions send the input described in the interface to Gemini. Recaps require consent for selected note excerpts. Backups can contain private notes; review them before sharing. The Friends view compares an explicitly imported backup locally.
+
+This is a functional, AI-assisted portfolio project. The case study describes implemented design decisions and engineering checks; it does not claim measured adoption, user research outcomes or complete accessibility certification.
+
+## Publication and credits
+
+Follow the [GitHub publication guide](docs/PUBLISHING.md) when preparing a new repository. Source-code licensing has not been granted; see [attributions](ATTRIBUTIONS.md) for dependencies and sample artwork. [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md).

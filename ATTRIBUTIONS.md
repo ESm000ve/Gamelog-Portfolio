@@ -1,3 +1,15 @@
-This Figma Make file includes components from [shadcn/ui](https://ui.shadcn.com/) used under [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).
+# Attributions and rights
 
-This Figma Make file includes photos from [Unsplash](https://unsplash.com) used under [license](https://unsplash.com/license).
+Gamelog builds on React, React Router, Microsoft Fluent UI React, Lucide icons (ISC), Dexie, Vite, Express, Electron and other packages listed in `package.json` and the lockfile. Those projects retain their respective licenses; preserve their notices when distributing dependencies or packaged binaries.
+
+The macOS interface uses project-specific tokens, window and sidebar surfaces and page composition on top of that component foundation. System fonts are referenced from the operating system; no font files are redistributed.
+
+The design-system viewer contains reference exports of the linked Gamelog macOS Figma file. It includes no third-party icon files.
+
+The fictional game names, geometric sample covers and invented play records in the demo fixture were created for this portfolio presentation. They do not represent real catalog titles, publishers or personal play history. Screenshots show the working app with that sample content.
+
+Live catalog metadata and artwork are supplied by IGDB and their respective rights holders. Steam, Twitch, Gemini and CheapShark are external services with their own terms. No affiliation or endorsement is claimed. The demo fixture contains no downloaded commercial cover artwork.
+
+The original prototype attribution credited shadcn/ui under MIT ([license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md)) and Unsplash under its own [license](https://unsplash.com/license). Those notices are retained here for provenance; the new portfolio screenshots use original sample artwork.
+
+Application source and documentation have no open-source license grant at this time. Third-party licenses do not grant rights to the rest of this project. AI-assisted implementation and documentation are disclosed in the README and case study.

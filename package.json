@@ -18,7 +18,10 @@
     "check": "npm run typecheck && npm run lint && npm test",
     "test:ui": "playwright test",
     "test:ui:production": "npm run build:web && tsx scripts/test-ui-production.ts",
-    "test:desktop": "tsx scripts/test-desktop.ts"
+    "test:desktop": "tsx scripts/test-desktop.ts",
+    "screenshots": "npm run build:web && tsx scripts/capture-portfolio.ts",
+    "check:publication": "tsx scripts/public-source.ts",
+    "export:github": "tsx scripts/public-source.ts --export"
   },
   "dependencies": {
     "@fluentui/react-components": "^9.74.11",

@@ -14,7 +14,7 @@ const scratch = await mkdtemp(path.join(tmpdir(), "gamelog-desktop-test-"));
 await mkdir(path.join(scratch, "profile"));
 await writeFile(
   path.join(scratch, "profile", ".env"),
-  "GEMINI_API_KEY=isolated-desktop-test-key\n"
+  "GEMINI_API_KEY=desktop-test-key\n"
 );
 const probe = createServer();
 await new Promise<void>((resolve) => probe.listen(0, "127.0.0.1", resolve));
@@ -67,7 +67,7 @@ function runtimeRequire(id) {
 const source = fs.readFileSync(bundle, "utf8").replaceAll("import.meta.url", JSON.stringify(url.pathToFileURL(bundle).href));
 const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 const providerFetch = async (_url, options) => {
-  if (options?.headers?.["x-goog-api-key"] !== "isolated-desktop-test-key") throw new Error("Private desktop key was not loaded");
+  if (options?.headers?.["x-goog-api-key"] !== "desktop-test-key") throw new Error("Private desktop key was not loaded");
   return { ok: true, json: async () => ({ candidates: [{ content: { parts: [{ text: JSON.stringify({ target: "igdb", igdbSearchQuery: "short", filters: {} }) }] } }] }) };
 };
 vm.runInNewContext(code, { exports: {}, require: runtimeRequire, console, process, Buffer, URL, URLSearchParams, TextDecoder, TextEncoder, AbortSignal, AbortController, setTimeout, clearTimeout, setInterval, clearInterval, fetch: providerFetch }, { filename: bundle });

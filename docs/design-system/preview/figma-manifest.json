@@ -1,0 +1,93 @@
+{
+  "fileName": "Gamelog · macOS Design System",
+  "fileKey": "TiuL5F9dS9HemUafC0ZnIM",
+  "fileUrl": "https://www.figma.com/design/TiuL5F9dS9HemUafC0ZnIM?node-id=2-2",
+  "portfolioUrl": "https://www.figma.com/design/TiuL5F9dS9HemUafC0ZnIM?node-id=2-687",
+  "prototypeUrl": null,
+  "snapshot": "2026-11-08",
+  "status": "Editable review library; not team-published",
+  "counts": {
+    "pages": 10,
+    "variables": 105,
+    "variableCollections": 3,
+    "colorVariables": 82,
+    "numberVariables": 23,
+    "componentSets": 10,
+    "standaloneComponents": 2,
+    "componentMasters": 115,
+    "textStyles": 5,
+    "effectStyles": 4,
+    "reviewFrames": 10,
+    "prototypeFrames": 0
+  },
+  "variableCollections": {
+    "macOS · Primitives": { "variables": 47, "modes": ["Value"] },
+    "macOS · Semantic color": { "variables": 35, "modes": ["Dark", "Light"] },
+    "macOS · Metrics": { "variables": 23, "modes": ["Value"] }
+  },
+  "styles": {
+    "text": ["App/Display", "App/Section", "App/Body", "App/Caption", "Control/Label"],
+    "effect": ["Elevation/Small", "Elevation/Medium", "Elevation/Large", "Elevation/Extra large"]
+  },
+  "font": {
+    "figma": "SF Pro",
+    "implementation": "System font stack (SF Pro on macOS)"
+  },
+  "pages": {
+    "00 · Start here": "0:1",
+    "01 · Foundations": "1:119",
+    "02 · Actions": "1:120",
+    "03 · Inputs & selection": "1:121",
+    "04 · Navigation": "1:122",
+    "05 · Content & status": "1:123",
+    "06 · Overlays & feedback": "1:124",
+    "07 · UX patterns": "1:125",
+    "08 · Accessibility & governance": "1:126",
+    "09 · Portfolio": "1:127"
+  },
+  "reviewFrames": {
+    "00-cover": "2:2",
+    "01-foundations": "2:23",
+    "02-actions": "2:87",
+    "03-inputs": "2:448",
+    "04-navigation": "2:511",
+    "05-content": "2:548",
+    "06-overlays": "2:608",
+    "07-patterns": "2:649",
+    "08-accessibility": "2:668",
+    "09-portfolio": "2:687"
+  },
+  "componentSets": {
+    "actions": {
+      "Primary": "2:140",
+      "Secondary": "2:210",
+      "Outline": "2:280",
+      "Ghost": "2:350",
+      "Danger": "2:420"
+    },
+    "inputs": {
+      "Search": "2:465",
+      "View selection": "2:474"
+    },
+    "navigation": {
+      "Sidebar item": "2:528"
+    },
+    "content": {
+      "Status badge": "2:573",
+      "Cover card": "2:574"
+    },
+    "overlays": {
+      "Draft dialog": "2:617",
+      "Operation feedback": "2:631"
+    }
+  },
+  "validation": {
+    "codeConnect": "Manual source map, not enabled"
+  },
+  "limits": [
+    "Figma specimens represent states; they are not a full runtime app.",
+    "There is no Figma prototype for macOS yet; the Windows library includes a browse-to-save prototype.",
+    "No formal contrast, screen-reader or zoom certification is claimed.",
+    "No formal participant study or measured user-impact improvement is claimed."
+  ]
+}

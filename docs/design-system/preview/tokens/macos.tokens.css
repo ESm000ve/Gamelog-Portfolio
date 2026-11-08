@@ -1,0 +1,165 @@
+/* Source macOS theme token declarations. Set data-theme="light" or "dark" and optionally data-accent. Font files are not included; SF Pro is the system font on macOS. */
+:root {
+  --app-label: rgba(255, 255, 255, 1);
+  --app-secondary-label: rgba(235, 235, 245, 0.72);
+  --app-tertiary-label: rgba(235, 235, 245, 0.3);
+  --app-quaternary-label: rgba(235, 235, 245, 0.18);
+  --app-white: #ffffff;
+  --app-window-bg: #1e1e1e;
+  --app-secondary-bg: #2c2c2e;
+  --app-tertiary-bg: #3a3a3c;
+  --app-elevated-bg: #48484a;
+  --app-sidebar-bg: rgba(43, 43, 48, 0.85);
+  --app-toolbar-bg: rgba(38, 38, 42, 0.92);
+  --app-separator: rgba(84, 84, 88, 0.65);
+  --app-opaque-separator: #38383a;
+  --app-fill: rgba(120, 120, 128, 0.36);
+  --app-secondary-fill: rgba(120, 120, 128, 0.28);
+  --app-tertiary-fill: rgba(118, 118, 128, 0.2);
+  --app-quaternary-fill: rgba(116, 116, 128, 0.14);
+  --app-accent: #514ecb;
+  --app-accent-subtle: rgba(94, 92, 230, 0.22);
+  --app-accent-border: rgba(94, 92, 230, 0.5);
+  --app-accent-foreground: #ffffff;
+  --app-green: #32d74b;
+  --app-green-subtle: rgba(50, 215, 75, 0.16);
+  --app-blue: #0a84ff;
+  --app-blue-subtle: rgba(10, 132, 255, 0.16);
+  --app-orange: #ff9f0a;
+  --app-orange-subtle: rgba(255, 159, 10, 0.16);
+  --app-pink: #ff375f;
+  --app-pink-subtle: rgba(255, 55, 95, 0.16);
+  --app-yellow: #ffd60a;
+  --app-yellow-subtle: rgba(255, 214, 10, 0.16);
+  --app-red: #ff453a;
+  --app-red-subtle: rgba(255, 69, 58, 0.16);
+  --app-purple: #bf5af2;
+  --app-purple-subtle: rgba(191, 90, 242, 0.16);
+  --app-font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --app-font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  --app-font-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-14: 56px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 13px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 25px;
+  --font-size-3xl: 32px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal: 40;
+  --z-popover: 50;
+  --app-bg: var(--app-window-bg);
+  --app-card-bg: var(--app-secondary-bg);
+  --app-indigo: #5e5ce6;
+  --app-black: #000000;
+}
+
+:root[data-theme="light"] {
+  --app-label: rgba(0, 0, 0, 1);
+  --app-secondary-label: rgba(60, 60, 67, 0.76);
+  --app-tertiary-label: rgba(60, 60, 67, 0.3);
+  --app-quaternary-label: rgba(60, 60, 67, 0.18);
+  --app-white: #ffffff;
+  --app-window-bg: #f6f6f8;
+  --app-secondary-bg: #ffffff;
+  --app-tertiary-bg: #f2f2f7;
+  --app-elevated-bg: #ffffff;
+  --app-sidebar-bg: rgba(232, 232, 238, 0.78);
+  --app-toolbar-bg: rgba(249, 249, 251, 0.88);
+  --app-separator: rgba(60, 60, 67, 0.29);
+  --app-opaque-separator: #c6c6c8;
+  --app-fill: rgba(120, 120, 128, 0.2);
+  --app-secondary-fill: rgba(120, 120, 128, 0.16);
+  --app-tertiary-fill: rgba(118, 118, 128, 0.12);
+  --app-quaternary-fill: rgba(116, 116, 128, 0.08);
+}
+
+:root[data-theme="dark"] {
+  --app-label: rgba(255, 255, 255, 1);
+  --app-secondary-label: rgba(235, 235, 245, 0.72);
+  --app-tertiary-label: rgba(235, 235, 245, 0.3);
+  --app-quaternary-label: rgba(235, 235, 245, 0.18);
+  --app-white: #ffffff;
+  --app-window-bg: #1e1e1e;
+  --app-secondary-bg: #2c2c2e;
+  --app-tertiary-bg: #3a3a3c;
+  --app-elevated-bg: #48484a;
+  --app-sidebar-bg: rgba(43, 43, 48, 0.85);
+  --app-toolbar-bg: rgba(38, 38, 42, 0.92);
+  --app-separator: rgba(84, 84, 88, 0.65);
+  --app-opaque-separator: #38383a;
+  --app-fill: rgba(120, 120, 128, 0.36);
+  --app-secondary-fill: rgba(120, 120, 128, 0.28);
+  --app-tertiary-fill: rgba(118, 118, 128, 0.2);
+  --app-quaternary-fill: rgba(116, 116, 128, 0.14);
+}
+
+:root[data-accent="indigo"] {
+  --app-accent: #514ecb;
+  --app-accent-subtle: rgba(94, 92, 230, 0.22);
+  --app-accent-border: rgba(94, 92, 230, 0.5);
+}
+
+:root[data-accent="green"] {
+  --app-accent: #237a3b;
+  --app-accent-subtle: rgba(48, 209, 88, 0.22);
+  --app-accent-border: rgba(48, 209, 88, 0.5);
+}
+
+:root[data-accent="blue"] {
+  --app-accent: #0063cf;
+  --app-accent-subtle: rgba(10, 132, 255, 0.22);
+  --app-accent-border: rgba(10, 132, 255, 0.5);
+}
+
+:root[data-accent="orange"] {
+  --app-accent: #a04f00;
+  --app-accent-subtle: rgba(255, 159, 10, 0.22);
+  --app-accent-border: rgba(255, 159, 10, 0.5);
+}
+
+:root[data-accent="pink"] {
+  --app-accent: #bf2551;
+  --app-accent-subtle: rgba(255, 55, 95, 0.22);
+  --app-accent-border: rgba(255, 55, 95, 0.5);
+}
+
+:root[data-accent="gold"] {
+  --app-accent: #826000;
+  --app-accent-subtle: rgba(255, 214, 10, 0.22);
+  --app-accent-border: rgba(255, 214, 10, 0.5);
+}
+
+:root[data-accent="purple"] {
+  --app-accent: #8241b5;
+  --app-accent-subtle: rgba(191, 90, 242, 0.22);
+  --app-accent-border: rgba(191, 90, 242, 0.5);
+}
+
+:root[data-accent="red"] {
+  --app-accent: #c12f28;
+  --app-accent-subtle: rgba(255, 69, 58, 0.22);
+  --app-accent-border: rgba(255, 69, 58, 0.5);
+}

@@ -1,64 +1,66 @@
-# Gamelog | Product design case study
+# Gamelog for macOS | A library that helps you choose what to play
 
-**Eric Auzenne · Product design and implementation**
+**Eric Auzenne · Personal product design project · Apple silicon desktop**
 
-I designed and built Gamelog, a local-first macOS app for organizing a game collection, keeping a play journal, and deciding what to play next. My scope covered information architecture, interaction and visual design, shared UI components, implementation, and verification. The three core workflows are Library, What to Play, and Activity.
+I designed and built Gamelog with AI-assisted implementation. My work covered information architecture, interaction and visual design, the shared UI, the macOS design system, and verification. The product brings together three jobs that often sit in separate tools: organizing games, keeping a play journal, and choosing a next session.
 
-## From an immediate add to a reviewable draft
+[Try the fictional demo](../../README.md#try-the-demo) · [Explore the design system](design-system/README.md)
 
-In the prototype, clicking **Add to library & log** on a game’s detail page saved it to the backlog before the editor opened. Someone who opened the editor to see what they could log had already changed their collection. Closing the editor left the backlog entry behind.
+## The design premise
 
-I moved the save to the end of the flow. The editor opens with a draft and tells the player what will happen. **Save** adds the game and its log together. **Cancel** or **Escape** closes the draft without creating either record.
+A large backlog can tell you what you own while leaving the next choice open. I designed around a more concrete question: what fits the time I have and the games I’m already playing? The product uses collection status, play history, and duration estimates to support that decision. This was a design premise evaluated through the working app and regression scenarios.
 
-I evaluated this with an empty library in the browser tests. The checks open game details and confirm that browsing leaves storage empty. They then open and dismiss the draft with both Cancel and Escape, verify that no records were written, and check that Save persists both the game and the reviewed log. These checks verify the interaction and its effect on storage. The project has no measured adoption or usability outcomes to report.
+## 1. Let people browse before committing
 
-[Browser test scenarios](../../tests/browser/browse-without-saving.spec.ts)
+In the prototype, **Add to library & log** wrote a backlog entry before opening the editor. A player who closed the editor after looking at the form had already changed the collection.
 
-## Design decisions
+I moved the save to the end. Browsing opens catalog details. Opening the log creates a draft. **Save** commits the game and the reviewed log together. **Cancel** and **Escape** dismiss the draft and leave the collection intact. The extra review step gives players a clear point of commitment, including when a quick log starts with AI-generated fields.
 
-**Separate library status from play outcome.** A game can be in the Played group while its last playthrough was completed, abandoned, or shelved. Keeping those fields separate lets people filter the library by intent while preserving the history of what happened.
+I verified this with an empty library. The browser scenarios browse, open and dismiss the editor, then check storage directly. Separate Save scenarios verify both records persist. The keyboard check also verifies focus enters the editor and returns to the launch button. [Browser scenarios](../../tests/browser/browse-without-saving.spec.ts)
 
-**Use the same collection for browsing and comparing.** Cover view supports visual scanning. Table view puts sortable information such as time and rating next to each title. Search, filters, and saved views help people return to the same slice of their library.
+## 2. Support visual browsing and structured comparison
 
-**Make the choice of what to play visible.** The recommendation screen exposes the play pool and time constraint, and gives reasons for suggested games. Players can continue a current game, select from the backlog, or revisit a favorite. Optional AI can refine eligible choices.
+![Library with cover filters, rating and view controls](screenshots/01-library.png)
 
-**Keep assistance reviewable.** A quick log enters the editor as a draft. Resume recaps ask players to choose the exact notes to share. Play history and exports live on the device, and local recommendations remain available without a Gemini key.
+The cover grid supports recognition. The table puts time, ratings, and status into comparable columns. Status tabs give a fast first cut, while filters and saved views let players return to a narrower collection without adding permanent navigation.
 
-Earlier design artifacts document the prototype’s structure and navigation review. [Information architecture](ia.html) · [Sitemap](sitemap.html)
+**Played** describes a game’s place in the collection. **Completed**, **Abandoned**, and **Shelved** describe outcomes. Separating the fields lets a game stay in Played even when the player chose to stop early. Maintaining both grid and table adds interaction states, so the two views share the same records and filter logic. [Library screen](../../src/screens/Library/LibraryScreen.tsx) · [Status and outcome colors](../../src/components/ui/statusColors.ts)
 
-## macOS design system
+## 3. Give each recommendation a reason
 
-I used the Windows system’s structure as the starting point for the macOS companion. The Mac library documents the shipped app’s Light and Dark tokens, SF Pro type, reusable components, and keyboard behavior. The design system page pairs Figma specimens with their React and CSS sources.
+![What to Play with ranked recommendations and reasons](screenshots/02-what-to-play.png)
 
-[Explore the macOS design system](design-system/README.md)
+What to Play starts with the local library. Players select a pool and an estimated duration limit. A result explains the signals that surfaced it, such as time to finish, an unfinished game, or genre overlap. Actions to open, start, or skip a game stay separate.
 
-## Screenshots
+Local ranking has limited context about a player’s mood. The app offers optional AI refinement while keeping the underlying constraints visible. Quick logs stay reviewable, and resume recaps request consent to send selected excerpts. [Recommendation screen](../../src/screens/Recommend/RecommendScreen.tsx)
 
-### Library
+## 4. Make play history useful on the Mac
 
-![Library with cover cards, status filters, ratings and view controls](screenshots/01-library.png)
+![Activity journal showing monthly metrics and a play calendar](screenshots/03-activity.png)
 
-### What to Play
+Adding a title and actually playing it are separate events. Activity uses recorded sessions and supports reviewing a specific period. The Mac Play menu can start or stop a timer without asking players to leave their current workflow. When stopped, the timer records a session for the selected game. The Dock adds shortcuts back into common tasks, and the system share picker handles list sharing.
 
-![Recommendation controls and ranked game cards with reasons](screenshots/02-what-to-play.png)
+An accurate calendar can look sparse when little has been logged. I kept the missing history visible and made recording it easier. Backups and recoverable removals give players a path back from mistakes. [Activity screen](../../src/screens/Activity/ActivityScreen.tsx) · [Mac menu](../../electron/macMenu.ts) · [Desktop services](../../electron/desktopFeatures.ts)
 
-### Activity
+## System and implementation
 
-![Activity journal with monthly metrics and a play calendar](screenshots/03-activity.png)
+The Mac library follows the organization of my Windows system so a reviewer can find the same component families and product patterns. The Mac implementation uses its own window and sidebar surfaces, SF Pro typography, and app-specific control states. The design-system reference shows how those decisions become semantic variables, component states, and source links.
 
-## Capture the three core flows
+[macOS design-system boards and source map](design-system/README.md) · [Prototype information architecture](ia.html) · [Prototype sitemap](sitemap.html)
 
-The screenshot spec uses fictional game records in a fresh Playwright profile. It imports them through the app’s normal backup flow and captures the browser version with mocked service responses.
+## Evidence and next validation
+
+The working app, production browser screenshots, storage checks, and desktop build checks establish what shipped. The portfolio uses fictional data. Participant research and adoption metrics are outside this project’s evidence.
+
+For a moderated study, I would ask participants to find a game they own, record a session, choose a game within a time limit, and recover a removal. I would observe whether they can complete each task, where they hesitate, and whether they can explain what changes their library. [Project checks](https://github.com/ESm000ve/Gamelog-Portfolio/actions)
+
+## Reproduce the screenshots
+
+The browser suite imports the same [fictional demo library](../../examples/demo-library.json) available to reviewers. It fixes the date and mocks external service requests for repeatable production captures.
 
 ```sh
 npx playwright install chromium
 npm run test:ui:production -- portfolio-screenshots.spec.ts
 ```
 
-The PNGs appear under `test-results/`. GitHub Actions also collects them as the **portfolio-screenshots** artifact after the browser suite passes.
-
-| Screenshot            | Portfolio caption                                                                                      |
-| --------------------- | ------------------------------------------------------------------------------------------------------ |
-| `01-library.png`      | The collection groups games by play status and supports both cover browsing and structured comparison. |
-| `02-what-to-play.png` | Players narrow the pool by available time and see why a game is suggested.                             |
-| `03-activity.png`     | The journal connects play sessions and completed games to a calendar and summary.                      |
+The PNGs are saved under `test-results/`. GitHub Actions uploads them as the **portfolio-screenshots** artifact after the browser suite passes.

@@ -1,0 +1,177 @@
+{
+  "version": 2,
+  "exported": "2026-10-28T12:00:00Z",
+  "games": [
+    {
+      "igdbId": 9401,
+      "title": "Signal Coast",
+      "slug": "signal-coast",
+      "developer": "Gamelog Demo Studio",
+      "releaseYear": 2024,
+      "genres": ["Adventure"],
+      "platforms": ["PC"],
+      "coverUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgNDgwIj4KIDxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iNDgwIiBmaWxsPSIjMGU2NTc3Ii8+CiA8Y2lyY2xlIGN4PSIxMDgiIGN5PSIxMjQiIHI9IjY0IiBmaWxsPSIjZjllN2JkIi8+CiA8cGF0aCBkPSJNMCAzMzUgMTEyIDE4NCAyMTkgMzI1IDMwOCAyMTEgMzYwIDI4MFY0ODBIMFoiIGZpbGw9IiMxMTIxMmMiIG9wYWNpdHk9Ii42NiIvPgogPHBhdGggZD0iTTAgMzc0IDEwMCAyODMgMjAxIDM1MCAzNjAgMjgxVjQ4MEgwWiIgZmlsbD0iIzEwMTkyNCIgb3BhY2l0eT0iLjgiLz4KIDx0ZXh0IHg9IjI0IiB5PSI0MzQiIGZpbGw9IiNmZmY2ZGYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCI+U2lnbmFsIENvYXN0PC90ZXh0Pgo8L3N2Zz4=",
+      "timeToBeat": {
+        "finish": 8
+      },
+      "addedAt": 1793188800000,
+      "updatedAt": 1793188800000
+    },
+    {
+      "igdbId": 9402,
+      "title": "Glass Orchard",
+      "slug": "glass-orchard",
+      "developer": "Gamelog Demo Studio",
+      "releaseYear": 2025,
+      "genres": ["Puzzle"],
+      "platforms": ["Nintendo Switch"],
+      "coverUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgNDgwIj4KIDxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iNDgwIiBmaWxsPSIjNzg1MjkwIi8+CiA8Y2lyY2xlIGN4PSIxMzUiIGN5PSIxNDYiIHI9IjY0IiBmaWxsPSIjZjllN2JkIi8+CiA8cGF0aCBkPSJNMCAzMzUgMTEyIDE4NCAyMTkgMzI1IDMwOCAyMTEgMzYwIDI4MFY0ODBIMFoiIGZpbGw9IiMxMTIxMmMiIG9wYWNpdHk9Ii42NiIvPgogPHBhdGggZD0iTTAgMzc0IDEwMCAyODMgMjAxIDM1MCAzNjAgMjgxVjQ4MEgwWiIgZmlsbD0iIzEwMTkyNCIgb3BhY2l0eT0iLjgiLz4KIDx0ZXh0IHg9IjI0IiB5PSI0MzQiIGZpbGw9IiNmZmY2ZGYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCI+R2xhc3MgT3JjaGFyZDwvdGV4dD4KPC9zdmc+",
+      "timeToBeat": {
+        "finish": 5
+      },
+      "addedAt": 1793188799000,
+      "updatedAt": 1793188800000
+    },
+    {
+      "igdbId": 9403,
+      "title": "Amber Circuit",
+      "slug": "amber-circuit",
+      "developer": "Gamelog Demo Studio",
+      "releaseYear": 2026,
+      "genres": ["Racing"],
+      "platforms": ["PC"],
+      "coverUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgNDgwIj4KIDxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iNDgwIiBmaWxsPSIjYTg1MTMwIi8+CiA8Y2lyY2xlIGN4PSIxNjIiIGN5PSIxNjgiIHI9IjY0IiBmaWxsPSIjZjllN2JkIi8+CiA8cGF0aCBkPSJNMCAzMzUgMTEyIDE4NCAyMTkgMzI1IDMwOCAyMTEgMzYwIDI4MFY0ODBIMFoiIGZpbGw9IiMxMTIxMmMiIG9wYWNpdHk9Ii42NiIvPgogPHBhdGggZD0iTTAgMzc0IDEwMCAyODMgMjAxIDM1MCAzNjAgMjgxVjQ4MEgwWiIgZmlsbD0iIzEwMTkyNCIgb3BhY2l0eT0iLjgiLz4KIDx0ZXh0IHg9IjI0IiB5PSI0MzQiIGZpbGw9IiNmZmY2ZGYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCI+QW1iZXIgQ2lyY3VpdDwvdGV4dD4KPC9zdmc+",
+      "timeToBeat": {
+        "finish": 12
+      },
+      "addedAt": 1793188798000,
+      "updatedAt": 1793188800000
+    },
+    {
+      "igdbId": 9404,
+      "title": "North of Ember",
+      "slug": "north-of-ember",
+      "developer": "Gamelog Demo Studio",
+      "releaseYear": 2024,
+      "genres": ["Adventure"],
+      "platforms": ["Nintendo Switch"],
+      "coverUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgNDgwIj4KIDxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iNDgwIiBmaWxsPSIjMzc1ODg2Ii8+CiA8Y2lyY2xlIGN4PSIxODkiIGN5PSIxMjQiIHI9IjY0IiBmaWxsPSIjZjllN2JkIi8+CiA8cGF0aCBkPSJNMCAzMzUgMTEyIDE4NCAyMTkgMzI1IDMwOCAyMTEgMzYwIDI4MFY0ODBIMFoiIGZpbGw9IiMxMTIxMmMiIG9wYWNpdHk9Ii42NiIvPgogPHBhdGggZD0iTTAgMzc0IDEwMCAyODMgMjAxIDM1MCAzNjAgMjgxVjQ4MEgwWiIgZmlsbD0iIzEwMTkyNCIgb3BhY2l0eT0iLjgiLz4KIDx0ZXh0IHg9IjI0IiB5PSI0MzQiIGZpbGw9IiNmZmY2ZGYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCI+Tm9ydGggb2YgRW1iZXI8L3RleHQ+Cjwvc3ZnPg==",
+      "timeToBeat": {
+        "finish": 18
+      },
+      "addedAt": 1793188797000,
+      "updatedAt": 1793188800000
+    },
+    {
+      "igdbId": 9405,
+      "title": "Little Tides",
+      "slug": "little-tides",
+      "developer": "Gamelog Demo Studio",
+      "releaseYear": 2025,
+      "genres": ["Simulation"],
+      "platforms": ["PC"],
+      "coverUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgNDgwIj4KIDxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iNDgwIiBmaWxsPSIjMzQ2OTRmIi8+CiA8Y2lyY2xlIGN4PSIyMTYiIGN5PSIxNDYiIHI9IjY0IiBmaWxsPSIjZjllN2JkIi8+CiA8cGF0aCBkPSJNMCAzMzUgMTEyIDE4NCAyMTkgMzI1IDMwOCAyMTEgMzYwIDI4MFY0ODBIMFoiIGZpbGw9IiMxMTIxMmMiIG9wYWNpdHk9Ii42NiIvPgogPHBhdGggZD0iTTAgMzc0IDEwMCAyODMgMjAxIDM1MCAzNjAgMjgxVjQ4MEgwWiIgZmlsbD0iIzEwMTkyNCIgb3BhY2l0eT0iLjgiLz4KIDx0ZXh0IHg9IjI0IiB5PSI0MzQiIGZpbGw9IiNmZmY2ZGYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCI+TGl0dGxlIFRpZGVzPC90ZXh0Pgo8L3N2Zz4=",
+      "timeToBeat": {
+        "finish": 7
+      },
+      "addedAt": 1793188796000,
+      "updatedAt": 1793188800000
+    },
+    {
+      "igdbId": 9406,
+      "title": "Paper Comet",
+      "slug": "paper-comet",
+      "developer": "Gamelog Demo Studio",
+      "releaseYear": 2026,
+      "genres": ["Platformer"],
+      "platforms": ["Nintendo Switch"],
+      "coverUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgNDgwIj4KIDxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iNDgwIiBmaWxsPSIjOWI0OTY2Ii8+CiA8Y2lyY2xlIGN4PSIyNDMiIGN5PSIxNjgiIHI9IjY0IiBmaWxsPSIjZjllN2JkIi8+CiA8cGF0aCBkPSJNMCAzMzUgMTEyIDE4NCAyMTkgMzI1IDMwOCAyMTEgMzYwIDI4MFY0ODBIMFoiIGZpbGw9IiMxMTIxMmMiIG9wYWNpdHk9Ii42NiIvPgogPHBhdGggZD0iTTAgMzc0IDEwMCAyODMgMjAxIDM1MCAzNjAgMjgxVjQ4MEgwWiIgZmlsbD0iIzEwMTkyNCIgb3BhY2l0eT0iLjgiLz4KIDx0ZXh0IHg9IjI0IiB5PSI0MzQiIGZpbGw9IiNmZmY2ZGYiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCI+UGFwZXIgQ29tZXQ8L3RleHQ+Cjwvc3ZnPg==",
+      "timeToBeat": {
+        "finish": 4
+      },
+      "addedAt": 1793188795000,
+      "updatedAt": 1793188800000
+    }
+  ],
+  "logs": [
+    {
+      "igdbId": 9401,
+      "status": "Playing",
+      "createdAt": 1793188800000,
+      "updatedAt": 1793188800000,
+      "startedAt": "2026-10-24",
+      "timePlayed": 3,
+      "playSessions": [
+        {
+          "date": "2026-10-24",
+          "durationMinutes": 120
+        },
+        {
+          "date": "2026-10-27",
+          "durationMinutes": 60
+        }
+      ]
+    },
+    {
+      "igdbId": 9402,
+      "status": "Backlog",
+      "createdAt": 1793188800000,
+      "updatedAt": 1793188800000
+    },
+    {
+      "igdbId": 9403,
+      "status": "Backlog",
+      "createdAt": 1793188800000,
+      "updatedAt": 1793188800000
+    },
+    {
+      "igdbId": 9404,
+      "status": "Played",
+      "createdAt": 1793188800000,
+      "updatedAt": 1793188800000,
+      "completion": "Completed",
+      "finishedAt": "2026-10-23",
+      "rating": 4.5,
+      "timePlayed": 18,
+      "playSessions": [
+        {
+          "date": "2026-10-23",
+          "durationMinutes": 90
+        }
+      ]
+    },
+    {
+      "igdbId": 9405,
+      "status": "Played",
+      "createdAt": 1793188800000,
+      "updatedAt": 1793188800000,
+      "completion": "Completed",
+      "finishedAt": "2026-10-24",
+      "rating": 4.5,
+      "timePlayed": 7,
+      "playSessions": [
+        {
+          "date": "2026-10-24",
+          "durationMinutes": 90
+        }
+      ]
+    },
+    {
+      "igdbId": 9406,
+      "status": "Wishlist",
+      "createdAt": 1793188800000,
+      "updatedAt": 1793188800000
+    }
+  ],
+  "lists": [
+    {
+      "id": "gamelog-demo-short-sessions",
+      "name": "Short sessions",
+      "isRanked": false,
+      "gameIds": [9402, 9401, 9405],
+      "createdAt": 1793188800000,
+      "updatedAt": 1793188800000
+    }
+  ],
+  "tags": []
+}

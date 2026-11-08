@@ -1,71 +1,75 @@
-# Gamelog
+# Gamelog for macOS
 
-**A personal game library, play journal, and decision aid for what to play next.**
+[![Project checks](https://github.com/ESm000ve/Gamelog-Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/ESm000ve/Gamelog-Portfolio/actions/workflows/ci.yml)
 
-Gamelog brings together three questions that a game collection alone can’t answer. What do I own? Where did I leave off? What fits the time I have tonight? It’s a local-first app for Apple silicon Macs, with a browser mode for development.
+**A personal game library, play journal, and guide to what to play next.**
+
+Gamelog connects three jobs in one local-first Apple silicon app. Browse and organize a collection, record what happened during play, and decide what fits the next session. Local recommendations explain their reasons. Optional AI can refine picks or draft a log for review.
+
+**Eric Auzenne · Product design · Interaction design · Design systems · Working app**
+
+[Read the case study](docs/case-study/README.md) · [Explore the macOS design system](docs/case-study/design-system/README.md) · [Try the demo](#try-the-demo) · [Windows edition](https://github.com/ESm000ve/Gamelog-Windows-Portfolio)
 
 ![Gamelog Library with play-status filters, cover art, ratings, and a grid or table toggle](docs/case-study/screenshots/01-library.png)
 
-_Library view using fictional game records and demo cover art._
+_Production browser capture using fictional games, sample artwork, and invented play records._
 
-| Flow                      | Design decision                                                                                                                                                                                 |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Organize a library**    | Cover and table views use the same records and filters. Wishlist, Backlog, Playing, and Played describe where a game sits. Outcomes like Completed or Shelved describe how a playthrough ended. |
-| **Keep a play journal**   | Sessions, ratings, and notes turn the library into a record of play. Activity connects individual entries to a calendar and summary.                                                            |
-| **Choose what to play**   | Start with a pool of games, narrow by available time, and see why a game surfaced. Local picks work without AI.                                                                                 |
-| **Stay in control of AI** | Quick log creates an editable draft. Resume recaps show the note excerpts selected for sharing and ask for consent before sending them.                                                         |
+## Explore the product
 
-[Design rationale, screenshot gallery, and capture instructions](docs/case-study/README.md) · [macOS design system](docs/case-study/design-system/README.md)
+| Experience   | Design decision                                                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Library      | Cover view supports recognition. A sortable table, filters, and saved views support comparison.                                      |
+| Game logs    | Browsing leaves the collection untouched. A player reviews a draft before saving a new game and its log.                             |
+| What to Play | The play pool and time limit narrow the options. Each local pick explains why it surfaced.                                           |
+| Activity     | The calendar and summary reflect recorded sessions. Collection activity and play history have separate meanings.                     |
+| Mac desktop  | Start and stop a session timer from the Play menu, resume from the Dock, share a list through macOS, and recover from local backups. |
 
-## Run locally
+| What to Play                                                                                              | Activity                                                                                        |
+| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| ![Local recommendations with ranked reasons and actions](docs/case-study/screenshots/02-what-to-play.png) | ![Play journal with session totals and a calendar](docs/case-study/screenshots/03-activity.png) |
 
-Requires Node.js 24 LTS or 22.12+.
+## Design system
+
+The macOS Figma library covers Light and Dark foundations, component states, keyboard behavior, and product patterns. The public reference includes all ten boards and links the component families to their React and CSS sources.
+
+[![Gamelog macOS design-system overview](docs/case-study/design-system/start-here.png)](docs/case-study/design-system/README.md)
+
+[Open the Figma library](https://www.figma.com/design/TiuL5F9dS9HemUafC0ZnIM?node-id=2-2) · [Browse the exported boards and source map](docs/case-study/design-system/README.md)
+
+## Try the demo
+
+Use Node.js 24 LTS and npm.
 
 ```sh
 npm ci
-cp .env.example .env
-npm run dev
+npm run dev:web
 ```
 
-Use `npm run dev:web` to open the browser version at the URL Vite prints. A fresh profile starts with an empty library. Existing full JSON backups can be restored without credentials from **Settings → Backup and restore**.
+Open the local URL printed in the terminal. In a fresh browser profile, open **Settings → Backup and restore → Import backup**, choose [`examples/demo-library.json`](examples/demo-library.json), and select **Merge (Add & Update)**. The backup adds six fictional games, play logs, and a curated list. Library views, local recommendations, and backups work without service credentials. For the sample sessions in Activity, choose a date range that includes October 2026.
 
 ### Connect your own services
 
-Add only the credentials for features you use to your local `.env` and restart the app.
+Copy `.env.example` to `.env`, add only the credentials you need, and restart the app.
 
-| Feature                                  | Environment variables                  | Provider                                                         |
-| ---------------------------------------- | -------------------------------------- | ---------------------------------------------------------------- |
-| Catalog search, covers, and game details | `IGDB_CLIENT_ID`, `IGDB_CLIENT_SECRET` | [IGDB authentication](https://api-docs.igdb.com/#authentication) |
-| Optional Gemini assistance               | `GEMINI_API_KEY`                       | [Google AI Studio](https://aistudio.google.com/apikey)           |
-| Optional Steam library import            | `STEAM_WEB_API_KEY`                    | [Steam Web API key](https://steamcommunity.com/dev/apikey)       |
+| Variable                                  | Feature                                                                                                                                                                                   |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `IGDB_CLIENT_ID` and `IGDB_CLIENT_SECRET` | Catalog search and online details through [IGDB](https://api-docs.igdb.com/#authentication)                                                                                               |
+| `GEMINI_API_KEY`                          | Optional AI assistance through [Google AI Studio](https://aistudio.google.com/apikey). Text generation defaults to `gemini-3.5-flash`, with `GEMINI_TEXT_MODEL` available as an override. |
+| `STEAM_WEB_API_KEY`                       | [Steam library import](https://steamcommunity.com/dev/apikey) for profiles with public game details                                                                                       |
 
-The Steam profile must expose game details. Gemini text generation defaults to `gemini-3.5-flash`. Use `GEMINI_TEXT_MODEL` to select another compatible model. Keys are read by the local server. Keep `.env` out of Git and avoid the `VITE_PUBLIC_` prefix for private settings.
+Credentials stay on the local server. Keep `.env` private and reserve the `VITE_PUBLIC_` prefix for values safe to expose to the renderer.
 
-### Build for macOS
+## Build and verify
 
-Run `npm run build:desktop` on an Apple silicon Mac to create a disk image under `release/macos/`. Open the image and drag Gamelog to Applications. Packaged builds read credentials from `~/Library/Application Support/Gamelog/.env` or the process environment. Restart after changing them.
+Use `npm run dev` for Electron development or `npm run build:desktop` to build the Apple silicon disk image under `release/macos/`.
 
-The desktop app includes a native Play menu and session timer, Dock shortcuts, daily local recovery backups, and wishlist price notifications. Open the backup folder from Settings.
-
-## Data and privacy
-
-Gamelog stores the library in IndexedDB. Browser and desktop profiles use separate storage. Production Electron uses `http://127.0.0.1:43821`. Export a backup before changing `GAMELOG_PORT`, since it changes the storage origin.
-
-Full backups include games, logs, lists, tags, and sessions. **Merge** updates matching records and keeps unrelated ones. **Replace** swaps the library in a single transaction. Some older exports need IGDB access to restore missing metadata.
-
-Catalog, AI, Steam import, and price lookup contact their respective services. Gemini receives the text or metadata needed by the feature you invoke. Play notes are sent for a resume recap only after you select the excerpts and consent.
-
-## Project structure
-
-- `src/` contains React screens, shared UI, local data, and recommendation logic.
-- `server/` handles credential-backed API routes for Vite and the packaged app.
-- `electron/` provides the native shell, menus, and desktop integrations.
-- `tests/` covers storage, product logic, API contracts, and browser flows.
+[macOS desktop setup](docs/DESKTOP-SETUP.md) · [Architecture and data boundaries](docs/ARCHITECTURE.md) · [GitHub Actions](https://github.com/ESm000ve/Gamelog-Portfolio/actions)
 
 | Command                      | Purpose                                                                         |
 | ---------------------------- | ------------------------------------------------------------------------------- |
-| `npm run check`              | Type-check, lint, and run the regression suite                                  |
-| `npm run build`              | Build the renderer and Electron app, then smoke-test the compiled server        |
-| `npm run test:ui:production` | Run Playwright against production assets                                        |
-| `npm run test:desktop`       | Smoke-test a built desktop app in an isolated Electron profile                  |
-| `npm run build:web`          | Build the browser renderer. Catalog and AI require the accompanying API routes. |
+| `npm run check`              | Type-check, lint, and run regression tests                                      |
+| `npm run build`              | Build production assets and smoke-check the compiled desktop server and preload |
+| `npm run test:ui:production` | Run the browser suite against production assets                                 |
+| `npm run test:desktop`       | Check a built Electron app using a temporary profile                            |
+
+[Reproduce the portfolio screenshots](docs/case-study/README.md#reproduce-the-screenshots)

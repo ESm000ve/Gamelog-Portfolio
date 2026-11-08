@@ -1,6 +1,18 @@
-# Gamelog portfolio notes
+# Gamelog | Product design case study
 
-Gamelog is an end-to-end product design and implementation project. It brings game discovery, collection management, and a play journal into one interface. The recurring decision it supports is what to play next, using the collection and play history someone already maintains.
+**Eric Auzenne · Product design and implementation**
+
+I designed and built Gamelog, a local-first macOS app for organizing a game collection, keeping a play journal, and deciding what to play next. My scope covered information architecture, interaction and visual design, shared UI components, implementation, and verification. The three core workflows are Library, What to Play, and Activity.
+
+## From an immediate add to a reviewable draft
+
+In the prototype, clicking **Add to library & log** on a game’s detail page saved it to the backlog before the editor opened. Someone who opened the editor to see what they could log had already changed their collection. Closing the editor left the backlog entry behind.
+
+I moved the save to the end of the flow. The editor opens with a draft and tells the player what will happen. **Save** adds the game and its log together. **Cancel** or **Escape** closes the draft without creating either record.
+
+I evaluated this with an empty library in the browser tests. The checks open game details and confirm that browsing leaves storage empty. They then open and dismiss the draft with both Cancel and Escape, verify that no records were written, and check that Save persists both the game and the reviewed log. These checks verify the interaction and its effect on storage. The project has no measured adoption or usability outcomes to report.
+
+[Browser test scenarios](../../tests/browser/browse-without-saving.spec.ts)
 
 ## Design decisions
 

@@ -40,11 +40,6 @@ export function Modal({
     if (isOpen) return registerDialog(id, () => closeRef.current());
   }, [isOpen, id]);
   useEffect(() => {
-    if (!isOpen || !initialFocusRef) return;
-    const timer = setTimeout(() => initialFocusRef.current?.focus(), 0);
-    return () => clearTimeout(timer);
-  }, [isOpen, initialFocusRef]);
-  useEffect(() => {
     if (!isOpen || !restoreFocusRef) return;
     return () => {
       // Menu items disappear when a confirmation opens. Return to their stable trigger.

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect, type RefObject } from "react";
 
 /**
  * A hook that traps focus within a specific DOM element.
@@ -6,14 +6,14 @@ import { useEffect } from "react";
  * It also restores focus to the previously active element when unmounted.
  */
 export function useFocusTrap(
-  ref: React.RefObject<any>,
+  ref: RefObject<HTMLElement | null>,
   isActive: boolean = true,
-  initialFocusRef?: React.RefObject<HTMLElement | null>
+  initialFocusRef?: RefObject<HTMLElement | null>
 ) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isActive || !ref.current) return;
 
-    const container = ref.current as HTMLElement;
+    const container = ref.current;
     const previouslyFocusedElement = document.activeElement as HTMLElement | null;
 
     // Get all focusable elements inside the container
@@ -50,35 +50,26 @@ export function useFocusTrap(
       focusableElements[next].focus();
     };
 
-    // Initial focus on the container or first element
-    // setTimeout is needed because the dialog might be rendering and animating
-    const focusTimeout = setTimeout(() => {
-      if (initialFocusRef && initialFocusRef.current) {
-        initialFocusRef.current.focus();
-      } else {
-        const focusableElements = getFocusableElements();
-        // If the container itself has tabIndex={-1}, we can focus it directly
-        if (container.hasAttribute("tabindex")) {
-          container.focus();
-        } else if (focusableElements.length > 0) {
-          focusableElements[0].focus();
-        }
-      }
-    }, 10);
+    // Focus before paint so keyboard input reaches the dialog as soon as it opens.
+    const initialFocus =
+      initialFocusRef?.current ??
+      (container.hasAttribute("tabindex") ? container : getFocusableElements()[0]);
+    initialFocus?.focus();
 
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      clearTimeout(focusTimeout);
       document.removeEventListener("keydown", handleKeyDown);
       // Restore focus
       if (previouslyFocusedElement && document.body.contains(previouslyFocusedElement)) {
         // Also use timeout to restore focus just in case the modal closing animation
         // interferes with focus restoring.
         setTimeout(() => {
-          previouslyFocusedElement.focus();
+          if (!document.activeElement?.closest('[aria-modal="true"]')) {
+            previouslyFocusedElement.focus();
+          }
         }, 10);
       }
     };
-  }, [isActive, ref]);
+  }, [isActive, ref, initialFocusRef]);
 }

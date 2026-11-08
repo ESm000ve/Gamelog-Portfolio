@@ -119,9 +119,11 @@ test("game detail add-and-log remains a draft through Cancel and Escape", async 
   await add.click();
   await cancelDraft(page);
   await add.click();
-  await expect(page.getByRole("dialog")).toBeVisible();
+  const draft = page.getByRole("dialog", { name: "Edit game log", exact: true });
+  await expect(draft).toBeFocused();
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(draft).toBeHidden();
+  await expect(add).toBeFocused();
   await empty(page);
 });
 test("picker titles preview and picker Add waits for Save", async ({ page }) => {

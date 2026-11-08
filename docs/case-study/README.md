@@ -14,6 +14,20 @@ Gamelog is an end-to-end product design and implementation project. It brings ga
 
 Earlier design artifacts document the prototype’s structure and navigation review. [Information architecture](ia.html) · [Sitemap](sitemap.html)
 
+## Screenshots
+
+### Library
+
+![Library with cover cards, status filters, ratings and view controls](screenshots/01-library.png)
+
+### What to Play
+
+![Recommendation controls and ranked game cards with reasons](screenshots/02-what-to-play.png)
+
+### Activity
+
+![Activity journal with monthly metrics and a play calendar](screenshots/03-activity.png)
+
 ## Capture the three core flows
 
 The screenshot spec uses fictional game records in a fresh Playwright profile. It imports them through the app’s normal backup flow and captures the browser version with mocked service responses.

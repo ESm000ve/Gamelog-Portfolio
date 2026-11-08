@@ -4,6 +4,10 @@
 
 Gamelog brings together three questions that a game collection alone can’t answer. What do I own? Where did I leave off? What fits the time I have tonight? It’s a local-first app for Apple silicon Macs, with a browser mode for development.
 
+![Gamelog Library with play-status filters, cover art, ratings, and a grid or table toggle](docs/case-study/screenshots/01-library.png)
+
+*Library view using fictional game records and demo cover art.*
+
 | Flow                      | Design decision                                                                                                                                                                                 |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Organize a library**    | Cover and table views use the same records and filters. Wishlist, Backlog, Playing, and Played describe where a game sits. Outcomes like Completed or Shelved describe how a playthrough ended. |
@@ -11,7 +15,7 @@ Gamelog brings together three questions that a game collection alone can’t ans
 | **Choose what to play**   | Start with a pool of games, narrow by available time, and see why a game surfaced. Local picks work without AI.                                                                                 |
 | **Stay in control of AI** | Quick log creates an editable draft. Resume recaps show the note excerpts selected for sharing and ask for consent before sending them.                                                         |
 
-[Portfolio notes and screenshot instructions](docs/case-study/README.md)
+[Design rationale, screenshot gallery, and capture instructions](docs/case-study/README.md)
 
 ## Run locally
 

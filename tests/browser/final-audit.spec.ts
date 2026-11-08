@@ -188,10 +188,10 @@ test("catalog failure preserves saved game log and recap entry with an online re
   ).toBeVisible();
   await expect(page.getByText("Reached the bridge.", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Resume recap", exact: true }).click();
-  await expect(
-    page.getByRole("dialog", { name: "Resume recap: Audit Quest", exact: true })
-  ).toBeVisible();
+  const recap = page.getByRole("dialog", { name: "Resume recap: Audit Quest", exact: true });
+  await expect(recap.getByRole("textbox", { name: "Selected note excerpts" })).toBeFocused();
   await page.keyboard.press("Escape");
+  await expect(recap).toBeHidden();
   await page.route("**/api/igdb/detail?*", (route) =>
     route.fulfill({ json: { game: raw, timeToBeat: null } })
   );

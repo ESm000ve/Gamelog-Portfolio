@@ -128,6 +128,9 @@ test("session removal supports draft undo and persistent recovery after saving",
   await page
     .getByRole("button", { name: "Restore Short Quest session history", exact: true })
     .click();
+  await expect(
+    page.getByText("Short Quest session history restored.", { exact: true })
+  ).toBeVisible();
   await sessions(page);
   await expect(dialog.getByLabel("Session 1 minutes", { exact: true })).toHaveValue("60");
 });

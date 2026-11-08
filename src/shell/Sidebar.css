@@ -1,0 +1,119 @@
+.sidebar {
+  width: 208px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  border-inline-end: 1px solid var(--app-separator);
+  background: var(--app-sidebar-bg);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  padding: var(--space-5) 10px;
+  padding-top: var(--space-4);
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  -webkit-app-region: drag;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.sidebar-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--app-accent);
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.sidebar-logo:hover .sidebar-logo-icon {
+  transform: scale(1.05) rotate(-5deg);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--app-label);
+  font-family: var(--app-font-text);
+  font-size: var(--font-size-base);
+  min-height: 34px;
+  font-weight: 400;
+  text-decoration: none;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.sidebar-nav-item:hover {
+  background: var(--app-fill);
+  color: var(--app-label);
+}
+
+.sidebar-nav-item[aria-current="page"] {
+  background: var(--app-accent);
+  color: var(--app-accent-foreground);
+  font-weight: 600;
+}
+
+.sidebar-nav-item:not([aria-current="page"]) svg {
+  color: var(--app-accent-ink);
+}
+
+.sidebar-nav-item[aria-current="page"]:hover {
+  opacity: 1;
+  background: var(--app-accent);
+  color: var(--app-accent-foreground);
+}
+
+.sidebar-nav-item:active {
+  transform: scale(0.97);
+}
+
+.sidebar-add-game {
+  margin-top: auto;
+  padding-top: 20px;
+  -webkit-app-region: no-drag;
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    width: 58px;
+    padding-inline: 6px;
+  }
+  .sidebar-logo,
+  .sidebar-nav-item {
+    justify-content: center;
+    padding-inline: 0;
+  }
+  .sidebar-logo .text-display,
+  .sidebar-label {
+    display: none;
+  }
+  .sidebar-add-game {
+    padding-inline: 0;
+  }
+  .sidebar-add-game .btn {
+    padding-inline: 0;
+  }
+}

@@ -1,0 +1,13 @@
+@import "./platforms/macos.css";
+@import "./shell.css";
+
+:root {
+  --app-bg: var(--app-window-bg);
+  --app-card-bg: var(--app-secondary-bg);
+  --app-indigo: #5e5ce6;
+  --app-accent-hover: color-mix(in srgb, var(--app-accent) 90%, var(--app-label));
+  --app-accent-pressed: color-mix(in srgb, var(--app-accent) 80%, var(--app-label));
+  --app-accent-ink: color-mix(in srgb, var(--app-accent) 58%, var(--app-label));
+  --app-control-bg: var(--app-fill);
+  --app-black: #000000;
+}

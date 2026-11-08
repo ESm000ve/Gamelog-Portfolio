@@ -1,0 +1,124 @@
+/* ─── Button ──────────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    filter 120ms ease,
+    opacity 120ms ease,
+    background 120ms ease;
+  border: 1px solid transparent;
+}
+
+.btn:hover:not(:disabled):not([aria-disabled="true"]) {
+  filter: brightness(1.1);
+}
+
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Variants */
+.btn-primary {
+  background: var(--app-accent);
+  color: var(--app-accent-foreground);
+}
+.btn-secondary {
+  background: var(--app-secondary-fill);
+  border-color: var(--app-separator);
+  color: var(--app-label);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--app-separator);
+  color: var(--app-label);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--app-label);
+}
+.btn-danger {
+  background: var(--app-red);
+  color: var(--app-white);
+}
+
+/* Persistent choices and momentary press feedback are separate states. */
+.btn[aria-pressed="false"] {
+  background: var(--app-secondary-fill);
+  border-color: var(--app-separator);
+  color: var(--app-label);
+}
+
+.btn:is([aria-pressed="true"], [data-selected="true"]) {
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+  color: var(--app-accent-foreground);
+}
+
+.btn:active:not(:disabled):not([aria-disabled="true"]) {
+  filter: brightness(0.88);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--app-accent-ink);
+  outline-offset: 2px;
+}
+
+.btn[aria-expanded="true"]:not([aria-pressed="true"], [data-selected="true"]) {
+  box-shadow: inset 0 0 0 1px var(--app-accent-ink);
+}
+
+@media (forced-colors: active) {
+  .btn:is([aria-pressed="true"], [data-selected="true"]) {
+    forced-color-adjust: none;
+    background: Highlight;
+    border-color: Highlight;
+    color: HighlightText;
+  }
+  .btn:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+/* Sizes */
+.btn-sm {
+  padding: var(--space-1) var(--space-3);
+  min-height: 28px;
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+.btn-md {
+  padding: var(--space-2) var(--space-4);
+  min-height: 32px;
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-md);
+}
+.btn-lg {
+  padding: var(--space-3) var(--space-6);
+  min-height: 44px;
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-lg);
+}
+
+/* Loading spinner */
+@keyframes btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.btn-spinner {
+  animation: btn-spin 1s linear infinite;
+}
+
+.btn:not(.btn-ghost):disabled:not([aria-pressed="true"], [data-selected="true"]) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

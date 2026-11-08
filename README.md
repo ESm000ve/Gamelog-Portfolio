@@ -6,7 +6,7 @@ Gamelog brings together three questions that a game collection alone can’t ans
 
 ![Gamelog Library with play-status filters, cover art, ratings, and a grid or table toggle](docs/case-study/screenshots/01-library.png)
 
-*Library view using fictional game records and demo cover art.*
+_Library view using fictional game records and demo cover art._
 
 | Flow                      | Design decision                                                                                                                                                                                 |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,7 +15,7 @@ Gamelog brings together three questions that a game collection alone can’t ans
 | **Choose what to play**   | Start with a pool of games, narrow by available time, and see why a game surfaced. Local picks work without AI.                                                                                 |
 | **Stay in control of AI** | Quick log creates an editable draft. Resume recaps show the note excerpts selected for sharing and ask for consent before sending them.                                                         |
 
-[Design rationale, screenshot gallery, and capture instructions](docs/case-study/README.md)
+[Design rationale, screenshot gallery, and capture instructions](docs/case-study/README.md) · [macOS design system](docs/case-study/design-system/README.md)
 
 ## Run locally
 

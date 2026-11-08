@@ -26,6 +26,12 @@ I evaluated this with an empty library in the browser tests. The checks open gam
 
 Earlier design artifacts document the prototype’s structure and navigation review. [Information architecture](ia.html) · [Sitemap](sitemap.html)
 
+## macOS design system
+
+I used the Windows system’s structure as the starting point for the macOS companion. The Mac library documents the shipped app’s Light and Dark tokens, SF Pro type, reusable components, and keyboard behavior. The design system page pairs Figma specimens with their React and CSS sources.
+
+[Explore the macOS design system](design-system/README.md)
+
 ## Screenshots
 
 ### Library
